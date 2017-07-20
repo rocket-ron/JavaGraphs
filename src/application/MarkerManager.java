@@ -129,7 +129,7 @@ public class MarkerManager {
     }
 
     /**
-     * TODO -- Might need to create all new markers and add them??
+     * TODO -- Might need to create all new markers and addEdge them??
      */
     public void restoreMarkers() {
     	Iterator<geography.GeographicPoint> it = markerMap.keySet().iterator();
@@ -254,7 +254,7 @@ public class MarkerManager {
                 selectedMarker.setIcon(SELECTED_URL);
 //                selectedMarker.setZIndex(SELECT_Z);
 
-                // re add markers to map
+                // re addEdge markers to map
                 // slightly glitchy
 //                refreshMarkers();
             }

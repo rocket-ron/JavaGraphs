@@ -10,7 +10,7 @@ import geography.GeographicPoint;
  * It extends GraphNode instead of GeographicPoint so that the node information is in a form that is readily
  * used in a PriorityQueue.
  */
-public class GraphEdge {
+public class GraphEdge implements Comparable<GraphEdge> {
 
     private GraphNode to = null;
     private String roadName = null;
@@ -20,12 +20,12 @@ public class GraphEdge {
     public GraphEdge(GeographicPoint to, String roadName, String roadType, double distance)
             throws IllegalArgumentException {
 
-        this(new GraphNode(to, 0.0), roadName, roadType, distance);
+        this(new GraphNode(to, Double.POSITIVE_INFINITY), roadName, roadType, distance);
     }
 
     public GraphEdge(GeographicPoint to, String roadName, String roadType,
                      double distance, double cumulativeDistance) {
-        this(new GraphNode(to, 0.0), roadName, roadType, distance);
+        this(new GraphNode(to, Double.POSITIVE_INFINITY), roadName, roadType, distance);
         this.to.setCumulativeDistance(cumulativeDistance);
     }
 
@@ -59,6 +59,19 @@ public class GraphEdge {
         return distance;
     }
 
+    /**
+     * Return a copy of a GraphEdge object
+     * @param e the object to copy
+     * @return a GraphEdge object that is a copy of the parameter
+     * @throws IllegalArgumentException
+     */
+    public static GraphEdge copy(GraphEdge e) {
+        if (e == null) {
+            throw new IllegalArgumentException("Parameter must not be null");
+        }
+        return new GraphEdge(GraphNode.copy(e.getTo()), e.getRoadName(), e.getRoadType(), e.getDistance());
+    }
+
     @Override
     public String toString() {
         return "["+ this.to + " => " + this.roadName + " <" + this.roadType + "> " + distance + "]";
@@ -66,10 +79,7 @@ public class GraphEdge {
 
     @Override
     public boolean equals(Object o) {
-        if (o instanceof GraphEdge && ((GraphEdge)o).getTo().equals(this.getTo()) &&
-                ((GraphEdge)o).getRoadName().equals(this.getRoadName()) &&
-                ((GraphEdge)o).getRoadType().equals(this.getRoadType()) &&
-                ((GraphEdge)o).getDistance() == this.getDistance()) {
+        if (o instanceof GraphEdge && ((GraphEdge)o).getTo().equals(this.getTo())) {
             return true;
         } else {
             return false;
@@ -78,9 +88,11 @@ public class GraphEdge {
 
     @Override
     public int hashCode() {
-        return this.getTo().hashCode() +
-                this.getRoadName().hashCode() +
-                this.getRoadType().hashCode() +
-                (int)this.getDistance() % 71;
+        return this.getTo().hashCode();
+    }
+
+    @Override
+    public int compareTo(GraphEdge e) {
+        return this.getTo().compareTo(e.getTo());
     }
 }

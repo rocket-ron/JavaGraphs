@@ -288,7 +288,7 @@ public class Maze {
 			while (it.hasPrevious()) {
 				MazeNode next = it.previous();
 				if (!visited.contains(next)) {
-					visited.add(next);
+					visited.addEdge(next);
 					parentMap.put(next, curr);
 					toExplore.push(next);
 				}

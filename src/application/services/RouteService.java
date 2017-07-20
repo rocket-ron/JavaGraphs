@@ -45,7 +45,7 @@ public class RouteService {
 	// GETS BIG
 	// initialize??
 
-	// add route polyline to map
+	// addEdge route polyline to map
 	//DISPLAY ROUTE METHODS
 	/**
 	 * Displays route on Google Map
@@ -127,7 +127,7 @@ public class RouteService {
             	List<LatLong> mapPath = constructMapPath(path);
                 //List<LatLong> mapPath = new ArrayList<LatLong>();
                 //for(geography.GeographicPoint point : path) {
-                //    mapPath.add(new LatLong(point.getX(), point.getY()));
+                //    mapPath.addEdge(new LatLong(point.getX(), point.getY()));
                 //}
 
 

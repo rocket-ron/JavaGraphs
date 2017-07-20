@@ -43,6 +43,7 @@ public class AStarGrader implements Runnable {
         thread.start();
         long endTime = System.currentTimeMillis() + 10000;
         boolean infinite = false;
+        /*
         while(thread.isAlive()) {
             // Stop after 10 seconds
             if (System.currentTimeMillis() > endTime) {
@@ -51,6 +52,7 @@ public class AStarGrader implements Runnable {
                 break;
             }
         }
+        */
         if (infinite) {
             System.out.println(printOutput((double)grader.correct / TESTS, grader.feedback + "\nYour program entered an infinite loop."));
         }

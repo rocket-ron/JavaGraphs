@@ -52,13 +52,30 @@ public class GraphNode extends GeographicPoint implements Comparable<GraphNode> 
         this.remainingDistance = this.distance(goalNode);
     }
 
+    public static GraphNode copy (GraphNode node) {
+        if (node == null) {
+            throw new IllegalArgumentException("Parameter must not be null");
+        }
+        GraphNode result = new GraphNode(node.getX(), node.getY(), node.getCumulativeDistance());
+        result.setRemainingDistance(node.getRemainingDistance());
+        return result;
+    }
+
+    /**
+     * Override setter for the remainingDistance
+     * @param distance
+     */
+    public void setRemainingDistance(double distance) {
+        this.remainingDistance = distance;
+    }
+
     /**
      * toString method override returns a string representation of this object
      * @return
      */
     public String toString() {
         return " [NODE at location (" + super.toString() + "), Cumulative Distance: " +
-                getCumulativeDistance() + " Remaining Distance: " + getRemainingDistance() + " ]";
+                getCumulativeDistance() + " Remaining Distance: " + getRemainingDistance() + " ]\n";
     }
 
     /**

@@ -38,7 +38,7 @@ public abstract class MapShape extends JavascriptObject {
      * This method is called from the GoogleMap.addPolygon() method, 
      * it should not be invoked directly.
      *
-     * @param map The map to add this Polygon to.
+     * @param map The map to addEdge this Polygon to.
      */
     protected void setMap(GoogleMap map) {
         invokeJavascript("setMap", map);
