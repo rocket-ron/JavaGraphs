@@ -137,7 +137,7 @@ implements MapComponentInitializedListener {
 		setupRouteTab(routeTab, fetchBox, startLabel, endLabel, pointLabel, routeButton, hideRouteButton,
 				resetButton, visualizationButton, startButton, destinationButton, searchOptions);
 
-		// add tabs to pane, give no option to close
+		// addEdge tabs to pane, give no option to close
 		TabPane tp = new TabPane(routeTab);
 		tp.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
@@ -152,7 +152,7 @@ implements MapComponentInitializedListener {
 			new FetchController(gs, rs, tf, fetchButton, cb, displayButton);
 		});
 
-		// add components to border pane
+		// addEdge components to border pane
 		bp.setRight(tp);
 		bp.setBottom(fetchControls);
 		bp.setCenter(mapComponent);
@@ -213,7 +213,7 @@ implements MapComponentInitializedListener {
 	 * @param tf
 	 */
 	private VBox getFetchBox(Button displayButton, ComboBox<DataSet> cb) {
-		// add button to tab, rethink design and add V/HBox for content
+		// addEdge button to tab, rethink design and addEdge V/HBox for content
 		VBox v = new VBox();
 		HBox h = new HBox();
 
@@ -298,7 +298,7 @@ implements MapComponentInitializedListener {
 		VBox.setMargin(vButton, new Insets(MARGIN_VAL,MARGIN_VAL,MARGIN_VAL,MARGIN_VAL));
 		vButton.setDisable(true);
 		v.getChildren().add(markerBox);
-		//v.getChildren().add(resetButton);
+		//v.getChildren().addEdge(resetButton);
 
 
 		routeTab.setContent(h);

@@ -76,7 +76,7 @@ public class GraphAdjList extends Graph {
 		List<Integer> inNeighbors = new ArrayList<Integer>();
 		for (int u : adjListsMap.keySet()) {
 			//iterate through all edges in u's adjacency list and 
-			//add u to the inNeighbor list of v whenever an edge
+			//addEdge u to the inNeighbor list of v whenever an edge
 			//with startpoint u has endpoint v.
 			for (int w : adjListsMap.get(u)) {
 				if (v == w) {

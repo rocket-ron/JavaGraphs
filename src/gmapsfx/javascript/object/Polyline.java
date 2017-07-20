@@ -36,7 +36,7 @@ public class Polyline extends JavascriptObject {
      * This method is called from the GoogleMap.addPolyline() method, 
      * it should not be invoked directly.
      *
-     * @param map The map to add this Polyline to.
+     * @param map The map to addEdge this Polyline to.
      */
     protected void setMap(GoogleMap map) {
         invokeJavascript("setMap", map);

@@ -64,7 +64,7 @@ public class Marker extends JavascriptObject {
     /**
      * This method is called from the GoogleMap.addMarker() method, it should not be invoked directly.
      *
-     * @param map The map to add this Marker to.
+     * @param map The map to addEdge this Marker to.
      */
     protected void setMap( GoogleMap map ) {
         invokeJavascript("setMap", map);

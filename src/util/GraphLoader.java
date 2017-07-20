@@ -58,7 +58,7 @@ public class GraphLoader
 		try {
 			PrintWriter writer = new PrintWriter(intersectionsFile, "UTF-8");
 
-			// Now we need to add the edges
+			// Now we need to addEdge the edges
 			// This is the tricky part
 			for (GeographicPoint pt : nodes) {
 				// Trace the node to its next node, building up the points 
@@ -192,7 +192,7 @@ public class GraphLoader
 			index++;
 		}
 		
-		// Now add the edges
+		// Now addEdge the edges
 		Collection<Integer> nodes = vertexMap.keySet();
 		for (Integer nodeNum : nodes) {
 			// Trace the node to its next node, building up the points 
@@ -243,7 +243,7 @@ public class GraphLoader
             		source = flightInfo[2];
             		destination = flightInfo[4];
             		//Add edge for this flight, if both source & destination are already vertices.
-            		//If one of these airports is missing, add vertex for it and then place edge.
+            		//If one of these airports is missing, addEdge vertex for it and then place edge.
             		if (!graph.hasVertex(source)) {
             			sourceIndex = graph.addVertex();
             			graph.addLabel(sourceIndex, source);
@@ -320,7 +320,7 @@ public class GraphLoader
 
 	
 	// Once you have built the pointMap and added the Nodes, 
-	// add the edges and build the road segments if the segments
+	// addEdge the edges and build the road segments if the segments
 	// map is not null.
 	private static void addEdgesAndSegments(Collection<GeographicPoint> nodes, 
 			HashMap<GeographicPoint,List<LinkedList<RoadLineInfo>>> pointMap,
@@ -328,7 +328,7 @@ public class GraphLoader
 			HashMap<GeographicPoint,HashSet<RoadSegment>> segments)
 	{
 	
-		// Now we need to add the edges
+		// Now we need to addEdge the edges
 		// This is the tricky part
 		for (GeographicPoint pt : nodes) {
 			// Trace the node to its next node, building up the points 
